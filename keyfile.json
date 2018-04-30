@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "weatherbot-9c7c4",
+  "private_key_id": "d2ef5988fd8db7b4cb8499fbc615aa3bbe487f3c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDEs/I/VHq5sqGV\nDwJ3H3wbPNzNnBZuJ/m90cboGDYs0sRwtGa5mjDpBwfJRpLxYF9iPM6WzMZzbHy+\nTDPgwdgYFFZeMRjb4vXDS4HZL/Nt3itsALfXCKr0EbA8GDEPRTfGlHNlLuWH0j+P\nep0dDA2JRwYNH7uzLt1E2KMSRpVGBnqSc99mk3s/llVPs5ly/lc/d7KQ54Q1i5pJ\n3OCoOF+SyqCM7MnOI/PqiZm5xmvoDWfzjHgad7Gxrqs+BR+jleHWkSWqOev0y7Oc\ngPneQMxjYnfIEfWE521HfHGmkoRF3iQ66DEhYzSneKQUYc8k39Rynyik0EPLI4Ks\n+U9DkomTAgMBAAECggEAO5E81pXYNn0UdqXdesKTnFIBkdhnaIN9m1C4Ohf+6/MF\n3xWamDFMB32EC51uKV+kcwT0EPHBVTnwytYbzcAWFzCteQfIPeqMv1AR6fod71Mc\n9i9/fMSYtKHYq1IuJTAydFYHXghmJQv0CJi6lI3OWZijCf1mo5wZENzEAWhTkyki\nKPYFxxiYQ9dGrDg8RV6so1I6iBm1tXZPKuxQoPMpJF5Ph+fY1fw9HGaWNomVPsyv\ndMAzlBn/6wWb3UR8zPI+NgjO+NZKGxcdQHA4i9rkx8i0psJqYsxUYGQktCzFJXld\ne4mRfoYClJ2Ms/AVHrlVsM2r0qgrKRlkMolCpbjlcQKBgQDlx1hNe/g3Tw6VAyyS\nWL3bjEBmIutPUfDH8woCGADhNFUu2bCXW91IZ+jsqy8HzlseGLOkZOMs903plHLe\nfttGtSooW6AwZGgW8aP8Ts9sTCT0X/GgAGOnp76p8AkGawhjDt00E1F3cCek0gT2\nRRdTjeOZu9QzQXHFDwIeykA/MQKBgQDbJlcIAv5juTmsYGFUniNvPwK5YHUcg6LP\nlrMkxOlycYfR79EejUXPmZDi22x1obKsEzuhC2i54nEgdW96VqdpBU7a+Xa4FTUP\nwGr2qIuLsY0bf9Imvjwnizz04z7PCBJV1ZLl/YhgV3cpQIimw5fRO64dqLp2b79O\nfjwOA7OMAwKBgQCNMLazte9JnQxqx+6FZn4S/9U6bU6GCOWZF2AY9ULlHtEQ3rbB\n6rLIIQFhG7bkZwpaLfeElnF5WeTIGG2VBgIbKorjDZoa4jeLkaOgD5UpCIjUmHfS\nRyr1BAAGT/ZbuT0IEUQfEZfHemUBxANEiCPTNaaa+m1jqV0NJzG4VbKwoQKBgQCl\ndcAWG3SIRIwH2skBw1gLoS5kWjBxs+2UADsHkuiS8KbUWdWw1IcV4+MhdPvhoJEv\nHGJUCDIszowNLr1ZR92kDE7qQ5lgCRsD5oqb6stZUFeyoIJBoDX4wUbnuj9svrJh\nPhxoK1DxNHiSm9fQ2TJh1kZyvDb0PxDYqbSb/C1ukwKBgBuHHjvme9HVrS7uVE93\nmlOvYMfKnfzZmUEgnQQkDgaqgBAE1k7RvVmkvG48s43zm8Sgr2+4fJcwxaiVPsvo\ngrm376Uedl9JhD5vw95Q+/oaju9hJmMOkNmO8dUhIhVpBN++9ybJQW2ikXRoTNzr\nHKavQ8mCgSDNbidt/Heye+eW\n-----END PRIVATE KEY-----\n",
+  "client_email": "weatherbot-9c7c4@appspot.gserviceaccount.com",
+  "client_id": "102675928663825155356",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/weatherbot-9c7c4%40appspot.gserviceaccount.com"
+}

@@ -1,0 +1,50 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server/server.js",
+    "server": "node ./server/server.js",
+    "client": "cd client && yarn start",
+    "build": "cd client && yarn build",
+    "analyze": "cd ./client && npm analyze",
+    "client-i": "cd client && npm install",
+    "i-all": "npm client-i && npm install"
+  },
+  "author": "Devashish Shrestha",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/storage": "^1.6.0",
+    "apiai": "^4.0.3",
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dialogflow": "^0.1.0",
+    "es6-promise": "^4.2.4",
+    "express": "^4.16.3",
+    "geocoder": "^0.2.3",
+    "geolocator": "^2.1.1",
+    "isomorphic-fetch": "^2.2.1",
+    "node-accuweather": "^1.7.0",
+    "node-geocoder": "^3.22.0",
+    "nodemon": "^1.17.3",
+    "readline": "^1.3.0",
+    "request": "^2.85.0",
+    "socket.io": "^2.0.4",
+    "web-midi-api": "^1.4.4"
+  },
+  "engines": {
+    "node": "8.9.4"
+  },
+  "devDependencies": {},
+  "description": "Weather App",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devashreeganesha108gmailcom/CapstoneProjectBrainStation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devashreeganesha108gmailcom/CapstoneProjectBrainStation/issues"
+  },
+  "homepage": "https://github.com/devashreeganesha108gmailcom/CapstoneProjectBrainStation#readme"
+}
