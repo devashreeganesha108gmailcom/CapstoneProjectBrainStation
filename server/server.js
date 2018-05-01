@@ -56,9 +56,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, '../client/build')));
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-});
 
 
 app.post('/currentposition', (req, res)=>{
@@ -483,5 +480,8 @@ io.on('connection', (socket) => {
   });
 });
 
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 server.listen(port, () => { console.log(`Back End Server Running at Port ${port}`) })
