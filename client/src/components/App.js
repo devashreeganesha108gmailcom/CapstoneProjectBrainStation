@@ -76,7 +76,7 @@ class Weather extends Component{
   }
   generateGraphData = () => {
     if((this.state.graphParameter !== 'parameter' && this.state.graphParameter !== '') && (this.state.forecastRange !== 'range' && this.state.forecastRange !== '')){
-      axios.post('../../../server/server/generategraphdata', {graphParameter: this.state.graphParameter,forecastRange: this.state.forecastRange,data: this.state.data
+      axios.post('http://localhost:8080/generategraphdata', {graphParameter: this.state.graphParameter,forecastRange: this.state.forecastRange,data: this.state.data
       })
            .then((response) => {this.setState({graphData: [{ color: 'white', name: response.data['0'].name, points: response.data['0'].values }],graphDataGenerated: true})})
     }
@@ -85,7 +85,7 @@ class Weather extends Component{
   }
 
   getPictures = () => {
-    axios.post('../../../server/server/getPictures')
+    axios.post('http://localhost:8080/getPictures')
          .then((response)=>{this.setState({pictures: JSON.parse(response.data)['0'].Photos})})
          .catch((error)=>{alert('errorPictures',error)})
   }
@@ -102,7 +102,7 @@ class Weather extends Component{
                longitude: response.data.results[0].geometry.location.lng
              }
            })
-           axios.post('../../../server/server/currentposition', {
+           axios.post('http://localhost:8080/currentposition', {
              latitude: response.data.results[0].geometry.location.lat,
              longitude: response.data.results[0].geometry.location.lng
            })
