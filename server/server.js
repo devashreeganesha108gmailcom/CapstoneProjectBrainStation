@@ -25,9 +25,8 @@ const geocoder = NodeGeocoder(options);
 const apiai = require('apiai')('4e3b9add39e444d899a34d97191132fa');
 app.set('port', port);
 var server = http.createServer(app);
-
-app.use(cors())
-const io = socketIo(server);
+var io = require('socket.io').listen(server);
+//const io = socketIo(server);
 const getApiAndEmit = "TODO"
 const accuweather = require('node-accuweather')()('tSjxuGorxISHcxOqEKG1j1TPaQWiYQuc');
 const projectId = 'weatherbot-9c7c4'; 
@@ -52,6 +51,8 @@ storage.getBuckets()
             console.error('ERROR:', err);
        });
 
+
+//app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '../client/build')));
@@ -478,7 +479,7 @@ io.on('connection', (socket) => {
   });
 });
 
-app.get('/', function (req, res) {
+app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 

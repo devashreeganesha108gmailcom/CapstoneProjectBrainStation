@@ -5,11 +5,11 @@
   "scripts": {
     "start": "node ./server/server.js",
     "server": "node ./server/server.js",
-    "client": "cd client && yarn start",
-    "build": "cd client && yarn build",
-    "analyze": "cd ./client && yarn analyze",
-    "client-i": "cd client && yarn install",
-    "i-all": "yarn client-i && yarn install"
+    "client": "cd client && npm start",
+    "build": "cd client && npm build",
+    "analyze": "cd ./client && npm analyze",
+    "client-i": "cd client && npm install",
+    "i-all": "npm client-i && npm install"
   },
   "author": "Devashish Shrestha",
   "license": "ISC",
