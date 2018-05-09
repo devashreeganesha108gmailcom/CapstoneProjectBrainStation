@@ -54,9 +54,7 @@ storage.getBuckets()
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
 app.use(express.static(path.join(__dirname, '../client/build')));
-
 
 app.post('/currentposition', (req, res)=>{
     request(`https://api.darksky.net/forecast/${apiKey}/${req.body.latitude},${req.body.longitude}`, (error, response, body) => {
@@ -480,7 +478,7 @@ io.on('connection', (socket) => {
   });
 });
 
-app.get('/*', function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 

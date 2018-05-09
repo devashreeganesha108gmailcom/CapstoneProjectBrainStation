@@ -8194,10 +8194,6 @@ react-linechart@^1.1.12:
     d3 "3.5.17"
     prop-types "15.5.10"
 
-react-native-geocoding@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-geocoding/-/react-native-geocoding-0.3.0.tgz#7987ad98f52b2b5a912688e80347f5222861f2a9"
-
 react-simple-chatbot@^0.2.9:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/react-simple-chatbot/-/react-simple-chatbot-0.2.9.tgz#7b7724f93664db532bd0b7d330a5d6d6e436ba46"
