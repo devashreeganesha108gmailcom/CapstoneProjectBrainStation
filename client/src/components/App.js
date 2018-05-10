@@ -117,7 +117,7 @@ class Weather extends Component{
                 .catch((error) => {alert('Error while fetching response data from server',error)})})
   }
   render() {
-    const socket = io('http://localhost:8080/')
+    const socket = io('https://weather-talker.herokuapp.com/')
     let counter = 0;
     if(this.state.recognitionStarted){
       recognition.addEventListener('result', e => {
