@@ -27,6 +27,7 @@ app.set('port', port);
 var server = http.createServer(app);
 
 app.use(cors())
+
 const io = socketIo(server);
 const getApiAndEmit = "TODO"
 const accuweather = require('node-accuweather')()('tSjxuGorxISHcxOqEKG1j1TPaQWiYQuc');

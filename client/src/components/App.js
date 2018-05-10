@@ -15,7 +15,6 @@ import Map from './Map'
 import BingSpeech from './BingSpeech'
 
 const googleAPIKey = 'AIzaSyB-Os0hdpx9nA0liw0hwf7uDg8zMVJF6QM'
-const socket = io('http://localhost:8080')
 const appDescription = `Weatherport provides the weather report of almost any place on earth.
                         Areas that are guaranteed to be covered include all the major cities 
                         throughout the world.This application uses real- time API data available
@@ -24,9 +23,16 @@ const appDescription = `Weatherport provides the weather report of almost any pl
                         with to get a comprehensive overview of the weather.It also lets you view weather 
                         forecasts upto a week into the future. `
 
-var bingClientRecognition = new BingSpeech.RecognitionClient("b40cc906fc224ba58d9d39d0b0b31083");
-var bingClientTTS = new BingSpeech.TTSClient("b40cc906fc224ba58d9d39d0b0b31083");
-bingClientTTS.multipleXHR = false;
+//var bingClientRecognition = new BingSpeech.RecognitionClient("b40cc906fc224ba58d9d39d0b0b31083");
+//var bingClientTTS = new BingSpeech.TTSClient("b40cc906fc224ba58d9d39d0b0b31083");
+//bingClientTTS.multipleXHR = false
+
+var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.interimResults = true;
+recognition.lang = 'en-US';
+const speechSynthesis = window.speechSynthesis;
+
 
 class Weather extends Component{
   constructor(){
@@ -46,12 +52,13 @@ class Weather extends Component{
       graphDataGenerated : false,
       currentAddressReportRequested : false,
       spokenText : '',
-      numberOfTimesChatButtonClicked : 0
+      numberOfTimesChatButtonClicked : 0,
+      scriptDialog : ''
     }
   }
 
   componentDidUpdate(){
-    this.state.recognitionStarted ? bingClientRecognition.startMicAndContinuousRecognition() : bingClientRecognition.endMicAndContinuousRecognition()
+    //this.state.recognitionStarted ? bingClientRecognition.startMicAndContinuousRecognition() : bingClientRecognition.endMicAndContinuousRecognition()
   }
 
   beginChat = () => {
@@ -110,30 +117,54 @@ class Weather extends Component{
                 .catch((error) => {alert('Error while fetching response data from server',error)})})
   }
   render() {
+    const socket = io('http://localhost:8080/')
     let counter = 0;
     if(this.state.recognitionStarted){
-      console.log("Voice Recognition Turned On")
-      bingClientRecognition.onFinalResponseReceived = (response) => {
-        console.log(response);
-        socket.emit("chat message", response)
-        console.log('chat message emitted')
-        bingClientRecognition.endMicAndContinuousRecognition()
-        if(counter === 0){
-          socket.on('chat message', (text) => {
-            console.log(counter)
-            if (counter === 0) {
-              counter++
-              console.log(text)
-              console.log(bingClientTTS)
-              bingClientTTS.synthesize(text, {}, () => {
-                bingClientRecognition.startMicAndContinuousRecognition()
-                console.log('synthesis complete')
-              })      
-            }
+      recognition.addEventListener('result', e => {
+        var transcript = Array.from(e.results)
+          .map(result => result[0])
+          .map(result => result.transcript)
+          .join('')
+        
+        if (e.results[0].isFinal) {
+          this.setState({
+            scriptDialog: transcript
           })
+          socket.emit("chat message", transcript)
         }
-        counter = 0
-      }   
+      })
+      socket.on('chat message', (text) => {
+        var message = new SpeechSynthesisUtterance();
+        message.text = text;
+        speechSynthesis.speak(message);
+        message.onend = function (event) {
+          recognition.addEventListener('end', recognition.start);
+          recognition.start();
+        }
+      })
+      
+      // console.log("Voice Recognition Turned On")
+      // bingClientRecognition.onFinalResponseReceived = (response) => {
+      //   console.log(response);
+      //   socket.emit("chat message", response)
+      //   console.log('chat message emitted')
+      //   bingClientRecognition.endMicAndContinuousRecognition()
+      //   if(counter === 0){
+      //     socket.on('chat message', (text) => {
+      //       console.log(counter)
+      //       if (counter === 0) {
+      //         counter++
+      //         console.log(text)
+      //         console.log(bingClientTTS)
+      //         bingClientTTS.synthesize(text, {}, () => {
+      //           bingClientRecognition.startMicAndContinuousRecognition()
+      //           console.log('synthesis complete')
+      //         })      
+      //       }
+      //     })
+      //   }
+      //   counter = 0
+      // }   
     }
     return (
       <div id="main-container">
@@ -144,7 +175,7 @@ class Weather extends Component{
                                                 <img className="blink-image" width="200" height="200" src="../../images/voice-recognition.png" alt="voice-recognition-icon"/>
                                              </div>
                                           ) : (<div>Voice Recognition Currently Deactivated</div>)}
-          
+          <p>Dialog : {this.state.scriptDialog}</p>
           {(!this.state.isLoading && this.state.currentAddressReportRequested) || !this.state.isLoading ? 
               (
                 <div className="container">
